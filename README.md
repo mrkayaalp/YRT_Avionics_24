@@ -1,1 +1,2 @@
 ## YRT 2024-2025 Avionics Software Junior
+Bu repoda yazılım destek ekip üyelerinin ödevlerinde yazdıkları kodlar bulunmaktadır. Her bir destek ekip üyesi, diğer ekip üyelerinin kodlarını inceleyebilir. 
