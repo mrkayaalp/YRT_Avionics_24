@@ -1,86 +1,86 @@
 #include <stdio.h>
 
-// Sabit tanýmlamalar
+// Sabit tanï¿½mlamalar
 #define MAX_SATIR 100
 #define MAX_SUTUN 100
 
-// kullanýlacak Fonksiyonlar
-void matrisYazdir(int matris[MAX_SATIR][MAX_SUTUN], int satir, int sutun) //Bu Fonksiyon, bir tamsayý matrisini ekrana yazdýrmak için kullanýlacak.Fonksiyon, üç parametre alýr : yazdýrýlacak matris, matrisin satir sayýsý ve matrisin sütun sayýsý.
+// kullanï¿½lacak Fonksiyonlar
+void matrisYazdir(int matris[MAX_SATIR][MAX_SUTUN], int satir, int sutun) //Bu Fonksiyon, bir tamsayï¿½ matrisini ekrana yazdï¿½rmak iï¿½in kullanï¿½lacak.Fonksiyon, ï¿½ï¿½ parametre alï¿½r : yazdï¿½rï¿½lacak matris, matrisin satir sayï¿½sï¿½ ve matrisin sï¿½tun sayï¿½sï¿½.
 {
-    for (int i = 0; i < satir; ++i) //Bu Döngü, matrisin her satýrýný temsil eder ve i deðiþkeni her döngü adýmýnda bir artar.
+    for (int i = 0; i < satir; ++i) //Bu Dï¿½ngï¿½, matrisin her satï¿½rï¿½nï¿½ temsil eder ve i deï¿½iï¿½keni her dï¿½ngï¿½ adï¿½mï¿½nda bir artar.
     {
-        for (int j = 0; j < sutun; ++j) //Bu Döngü, matrisin her sütununu temsil eder ve i deðiþkeni her döngü adýmýnda bir artar.
+        for (int j = 0; j < sutun; ++j) //Bu Dï¿½ngï¿½, matrisin her sï¿½tununu temsil eder ve i deï¿½iï¿½keni her dï¿½ngï¿½ adï¿½mï¿½nda bir artar.
         {
-            printf("%d ", matris[i][j]);//i. satýrýn elemanlarý yazdýrýlýr.
+            printf("%d ", matris[i][j]);//i. satï¿½rï¿½n elemanlarï¿½ yazdï¿½rï¿½lï¿½r.
         }
-        printf("\n");//bir alt satýra geçilir
+        printf("\n");//bir alt satï¿½ra geï¿½ilir
     }
 
 }
-//Bu fonksiyon, konvolusyon fonksiyonunu tanýmlar. Fonksiyon, iki matrisin (Görüntü ve Filtre) konvolüsyonunu hesaplar ve sonuç matrisine yazar. Parametreler arasýnda M ve N matris boyutlarýný, k filtre boyutunu ve T ise filtre matrisinin elemanlarý toplamýný belirtir.
+//Bu fonksiyon, konvolusyon fonksiyonunu tanï¿½mlar. Fonksiyon, iki matrisin (Gï¿½rï¿½ntï¿½ ve Filtre) konvolï¿½syonunu hesaplar ve sonuï¿½ matrisine yazar. Parametreler arasï¿½nda M ve N matris boyutlarï¿½nï¿½, k filtre boyutunu ve T ise filtre matrisinin elemanlarï¿½ toplamï¿½nï¿½ belirtir.
 void konvolusyon(int Goruntu[MAX_SATIR][MAX_SUTUN], int Filtre[MAX_SATIR][MAX_SUTUN], int sonuc[MAX_SATIR][MAX_SUTUN], int M, int N, int k, int T)
 {
-    for (int i = 0; i <= M - k; ++i) //Bu satýr, dýþtaki döngüyü baþlatýr.M satýrlý görüntü ve k satýrlý filtre matrisinin konvolüsyonu sonucunda m-k+1 satýrlý sonuc matrisi oluþur. bu yüzden i <= M-k ile döngü sýnýrlandýrýlýr.
+    for (int i = 0; i <= M - k; ++i) //Bu satï¿½r, dï¿½ï¿½taki dï¿½ngï¿½yï¿½ baï¿½latï¿½r.M satï¿½rlï¿½ gï¿½rï¿½ntï¿½ ve k satï¿½rlï¿½ filtre matrisinin konvolï¿½syonu sonucunda m-k+1 satï¿½rlï¿½ sonuc matrisi oluï¿½ur. bu yï¿½zden i <= M-k ile dï¿½ngï¿½ sï¿½nï¿½rlandï¿½rï¿½lï¿½r.
     {
-        for (int j = 0; j <= N - k; ++j) //Bu satýr, içteki döngüyü baþlatýr. N sütunlu görüntü ve k sütunlu filtre matrisinin konvolüsyonu sonucunda N-k+1 satýrlý sonuc matrisi oluþur. bu yüzden i <= N-k ile döngü sýnýrlandýrýlýr.
+        for (int j = 0; j <= N - k; ++j) //Bu satï¿½r, iï¿½teki dï¿½ngï¿½yï¿½ baï¿½latï¿½r. N sï¿½tunlu gï¿½rï¿½ntï¿½ ve k sï¿½tunlu filtre matrisinin konvolï¿½syonu sonucunda N-k+1 satï¿½rlï¿½ sonuc matrisi oluï¿½ur. bu yï¿½zden i <= N-k ile dï¿½ngï¿½ sï¿½nï¿½rlandï¿½rï¿½lï¿½r.
         {
-            int toplam = 0;//Bu satýrdan sonra sonuç matrisinin farklý bir elemaný hesaplanýr bu yüzden her seferinde toplam sýfýrlanýr.
+            int toplam = 0;//Bu satï¿½rdan sonra sonuï¿½ matrisinin farklï¿½ bir elemanï¿½ hesaplanï¿½r bu yï¿½zden her seferinde toplam sï¿½fï¿½rlanï¿½r.
             
-            for (int x = 0; x < k; ++x) // Bu satýr, iç içe üçüncü döngüyü baþlatýr. Bu döngü, filtre matrisinin her bir elemanýný temsil eder ve x deðiþkeni her döngü adýmýnda bir artar.
+            for (int x = 0; x < k; ++x) // Bu satï¿½r, iï¿½ iï¿½e ï¿½ï¿½ï¿½ncï¿½ dï¿½ngï¿½yï¿½ baï¿½latï¿½r. Bu dï¿½ngï¿½, filtre matrisinin her bir elemanï¿½nï¿½ temsil eder ve x deï¿½iï¿½keni her dï¿½ngï¿½ adï¿½mï¿½nda bir artar.
             {
-                for (int y = 0; y < k; ++y) // Bu döngü, filtre matrisinin her bir elemanýný temsil eder ve y deðiþkeni her döngü adýmýnda bir artar.
+                for (int y = 0; y < k; ++y) // Bu dï¿½ngï¿½, filtre matrisinin her bir elemanï¿½nï¿½ temsil eder ve y deï¿½iï¿½keni her dï¿½ngï¿½ adï¿½mï¿½nda bir artar.
                 {
-                    toplam += Goruntu[i + x][j + y] * Filtre[x][y]; //sonuc matrisinin elemanýný bulmak üzere görüntü ile filtre elemanlarýnýn çarpýmýnýn toplamý toplam deðiþkenine atanýr.
+                    toplam += Goruntu[i + x][j + y] * Filtre[x][y]; //sonuc matrisinin elemanï¿½nï¿½ bulmak ï¿½zere gï¿½rï¿½ntï¿½ ile filtre elemanlarï¿½nï¿½n ï¿½arpï¿½mï¿½nï¿½n toplamï¿½ toplam deï¿½iï¿½kenine atanï¿½r.
                 }
             }
-            sonuc[i][j] = toplam / T; // Toplam deðiþkeni filtre matrisinin elemanlarý toplamýný tutan T deðiþkenine bölünür ve sonuç matrisinin bir elemaný bulunmuþ olur.
+            sonuc[i][j] = toplam / T; // Toplam deï¿½iï¿½keni filtre matrisinin elemanlarï¿½ toplamï¿½nï¿½ tutan T deï¿½iï¿½kenine bï¿½lï¿½nï¿½r ve sonuï¿½ matrisinin bir elemanï¿½ bulunmuï¿½ olur.
         }
     }
 }
 
 int main() {
-    // Kullanýcýdan alýnan deðerleri tutacak deðiþkenler
+    // Kullanï¿½cï¿½dan alï¿½nan deï¿½erleri tutacak deï¿½iï¿½kenler
     int M, N, k;
 
-    // Kullanýcýdan matris boyutlarý ve filtre boyutu alýnýr.
+    // Kullanï¿½cï¿½dan matris boyutlarï¿½ ve filtre boyutu alï¿½nï¿½r.
     printf("Goruntu matrisinin satir sayisini girin: ");
-    scanf_s("%d", &M);
+    scanf("%d", &M);
 
     printf("Goruntu matrisinin sutun sayisini girin: ");
-    scanf_s("%d", &N);
+    scanf("%d", &N);
 
     printf("Filtre matrisinin boyutunu girin: ");
-    scanf_s("%d", &k);
+    scanf("%d", &k);
 
-    // Matrisler ve sonuç matrisinin boyutlarý belirtilir.
+    // Matrisler ve sonuï¿½ matrisinin boyutlarï¿½ belirtilir.
     int Goruntu[MAX_SATIR][MAX_SUTUN];
     int Filtre[MAX_SATIR][MAX_SUTUN];
     int sonuc[MAX_SATIR][MAX_SUTUN];
 
-    // Görüntü matrisini kullanýcýdan alma
+    // Gï¿½rï¿½ntï¿½ matrisini kullanï¿½cï¿½dan alma
     printf("Goruntu matrisini girin:\n");
     for (int i = 0; i < M; ++i)
     {
         for (int j = 0; j < N; ++j)
         {
-            scanf_s("%d", &Goruntu[i][j]);
+            scanf("%d", &Goruntu[i][j]);
         }
     }
       
 
-    // Filtre matrisini kullanýcýdan alma
+    // Filtre matrisini kullanï¿½cï¿½dan alma
     printf("Filtre matrisini girin:\n");
     for (int i = 0; i < k; ++i)
     {
         for (int j = 0; j < k; ++j) 
         {
 
-            scanf_s("%d", &Filtre[i][j]);
+            scanf("%d", &Filtre[i][j]);
         }
     }
         
 
-    //Filtre matrisinin her elemaný bu döngüyle toplanýr ve T deðiþkenine atanýr.
+    //Filtre matrisinin her elemanï¿½ bu dï¿½ngï¿½yle toplanï¿½r ve T deï¿½iï¿½kenine atanï¿½r.
     int T = 0;
     for (int i = 0; i < k; i++)
     {
@@ -90,18 +90,18 @@ int main() {
         }
     }
 
-    // Konvolüsyon iþlemi fonksiyon yardýmýyla gerçekleþtirilir
+    // Konvolï¿½syon iï¿½lemi fonksiyon yardï¿½mï¿½yla gerï¿½ekleï¿½tirilir
     konvolusyon(Goruntu, Filtre, sonuc, M, N, k, T);
 
-    // Görüntü Matrisi yazdýrýlýr
+    // Gï¿½rï¿½ntï¿½ Matrisi yazdï¿½rï¿½lï¿½r
     printf("Goruntu Matrisi:\n");
     matrisYazdir(Goruntu, M, N);
 
-    // Filtre Matrisi yazdýrýlýr
+    // Filtre Matrisi yazdï¿½rï¿½lï¿½r
     printf("\nFiltre Matrisi:\n");
     matrisYazdir(Filtre, k, k);
 
-    // Sonuç Matrisi yazdýrýlýr
+    // Sonuï¿½ Matrisi yazdï¿½rï¿½lï¿½r
     printf("\nSonuc Matrisi:\n");
     matrisYazdir(sonuc, M - k + 1, N - k + 1);
 

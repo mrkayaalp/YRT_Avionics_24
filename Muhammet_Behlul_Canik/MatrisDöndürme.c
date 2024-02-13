@@ -1,65 +1,65 @@
 #include <stdio.h>
 
 int main() {
-    int matris[10][10]; // Maksimum boyutu 10x10 olan bir tamsayý tipinde 2D matris tanýmlanýr.
-    int n;//matrisin boyutunu tutmasý için bir n deðiþkeni oluþturulur
+    int matris[10][10]; // Maksimum boyutu 10x10 olan bir tamsayï¿½ tipinde 2D matris tanï¿½mlanï¿½r.
+    int n;//matrisin boyutunu tutmasï¿½ iï¿½in bir n deï¿½iï¿½keni oluï¿½turulur
 
     printf("Matris boyutunu girin (en fazla 10): ");
-    scanf_s("%d", &n); // Kullanýcýdan matris boyutunu alýnýr.
+    scanf("%d", &n); // Kullanï¿½cï¿½dan matris boyutunu alï¿½nï¿½r.
 
-    // Girilen matris boyutunu kontrol eder, eðer hatalý giriþ yapýldýya ekrana hata çýktýsý verir.
+    // Girilen matris boyutunu kontrol eder, eï¿½er hatalï¿½ giriï¿½ yapï¿½ldï¿½ya ekrana hata ï¿½ï¿½ktï¿½sï¿½ verir.
     if (n <= 0 || n > 10) {
-        printf("Hatalý matris boyutu. Program sonlandýrýlýyor.\n");
+        printf("Hatalï¿½ matris boyutu. Program sonlandï¿½rï¿½lï¿½yor.\n");
         return 1;
     }
 
     printf("Matris elemanlarini girin:\n");
-    // Kullanýcýnýn girdiði matris elemanlarýný for döngüsü kullanarak matrise yerleþtirir.
+    // Kullanï¿½cï¿½nï¿½n girdiï¿½i matris elemanlarï¿½nï¿½ for dï¿½ngï¿½sï¿½ kullanarak matrise yerleï¿½tirir.
     for (int i = 0; i < n; ++i)
         for (int j = 0; j < n; ++j)
-            scanf_s("%d", &matris[i][j]);
+            scanf("%d", &matris[i][j]);
 
-    int secim;//kullanýcýnýn saða ve sola döndürme isteðini anlamak için secim deðikeni oluþturulur
-    printf("Matrisi saga döndürmek icin (1), sola döndürmek icin (2) e basýn: ");//kullanýcýya ne yapmak istediði sorulur
-    scanf_s("%d", &secim); // Kullanýcýdan matrisi saða veya sola döndürme seçeneðini alýr.
+    int secim;//kullanï¿½cï¿½nï¿½n saï¿½a ve sola dï¿½ndï¿½rme isteï¿½ini anlamak iï¿½in secim deï¿½ikeni oluï¿½turulur
+    printf("Matrisi saga dï¿½ndï¿½rmek icin (1), sola dï¿½ndï¿½rmek icin (2) e basï¿½n: ");//kullanï¿½cï¿½ya ne yapmak istediï¿½i sorulur
+    scanf("%d", &secim); // Kullanï¿½cï¿½dan matrisi saï¿½a veya sola dï¿½ndï¿½rme seï¿½eneï¿½ini alï¿½r.
 
     if (secim == 1) {
-        // Matrisi saða döndürme iþlemi
-        int temp[10][10];//yeni geçiçi kullanýlacak bir dizi oluþturulur 
+        // Matrisi saï¿½a dï¿½ndï¿½rme iï¿½lemi
+        int temp[10][10];//yeni geï¿½iï¿½i kullanï¿½lacak bir dizi oluï¿½turulur 
         for (int i = 0; i < n; ++i)
             for (int j = 0; j < n; ++j)
-                temp[j][n - 1 - i] = matris[i][j];//matrisin her bir elemaný saða döndürüldüðünde olacaðý konuma göre temp dizisine tanýmlanýr
+                temp[j][n - 1 - i] = matris[i][j];//matrisin her bir elemanï¿½ saï¿½a dï¿½ndï¿½rï¿½ldï¿½ï¿½ï¿½nde olacaï¿½ï¿½ konuma gï¿½re temp dizisine tanï¿½mlanï¿½r
 
-        // Döndürülen matrisi orijinal matrise kopyalar.
+        // Dï¿½ndï¿½rï¿½len matrisi orijinal matrise kopyalar.
         for (int i = 0; i < n; ++i)
             for (int j = 0; j < n; ++j)
-                matris[i][j] = temp[i][j];//matrisin döndürülmüþ hali tekrar matris[i][j] dizisine atanýr
+                matris[i][j] = temp[i][j];//matrisin dï¿½ndï¿½rï¿½lmï¿½ï¿½ hali tekrar matris[i][j] dizisine atanï¿½r
     }
     else if (secim == 2) {
-        // Matrisi sola döndürme iþlemi
+        // Matrisi sola dï¿½ndï¿½rme iï¿½lemi
         int temp[10][10];
         for (int i = 0; i < n; ++i)
             for (int j = 0; j < n; ++j)
-                temp[n - 1 - j][i] = matris[i][j]; // matrisin her bir elemaný sola döndürüldüðünde olacaðý konuma göre temp dizisine tanýmlanýr
+                temp[n - 1 - j][i] = matris[i][j]; // matrisin her bir elemanï¿½ sola dï¿½ndï¿½rï¿½ldï¿½ï¿½ï¿½nde olacaï¿½ï¿½ konuma gï¿½re temp dizisine tanï¿½mlanï¿½r
 
-        // Döndürülen matrisi orijinal matrise kopyalar.
+        // Dï¿½ndï¿½rï¿½len matrisi orijinal matrise kopyalar.
         for (int i = 0; i < n; ++i)
             for (int j = 0; j < n; ++j)
-                matris[i][j] = temp[i][j];//matrisin döndürülmüþ hali tekrar matris[i][j] dizisine atanýr
+                matris[i][j] = temp[i][j];//matrisin dï¿½ndï¿½rï¿½lmï¿½ï¿½ hali tekrar matris[i][j] dizisine atanï¿½r
     }
     else {
-        printf("Hatalý secim. Program sonlandýrýlýyor.\n");
+        printf("Hatalï¿½ secim. Program sonlandï¿½rï¿½lï¿½yor.\n");
         return 1;
     }
 
-    // Döndürülmüþ matrisi ekrana yazdýrýr.
+    // Dï¿½ndï¿½rï¿½lmï¿½ï¿½ matrisi ekrana yazdï¿½rï¿½r.
     printf("Dondurulmus Matris:\n");
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
-            printf("%d ", matris[i][j]);//for döngüsü ile ayný satýrdaki elemanlar yazdýrýlýr
+            printf("%d ", matris[i][j]);//for dï¿½ngï¿½sï¿½ ile aynï¿½ satï¿½rdaki elemanlar yazdï¿½rï¿½lï¿½r
         }
-        printf("\n");//ayný satýrdaki elemanlar yazdýrýldýktan sonra bir alt satýra geçmek için \n yazýlýr
+        printf("\n");//aynï¿½ satï¿½rdaki elemanlar yazdï¿½rï¿½ldï¿½ktan sonra bir alt satï¿½ra geï¿½mek iï¿½in \n yazï¿½lï¿½r
     }
-    //sonuç olarak kullanýcýnýn isteðine göre saða veya sola döndürülmüþ matris kullanýcýya verilir.
+    //sonuï¿½ olarak kullanï¿½cï¿½nï¿½n isteï¿½ine gï¿½re saï¿½a veya sola dï¿½ndï¿½rï¿½lmï¿½ï¿½ matris kullanï¿½cï¿½ya verilir.
     return 0;
 }
